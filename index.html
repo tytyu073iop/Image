@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Metadata Extractor</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
 
@@ -13,13 +14,14 @@
 
 <main>
     <h2>Select a folder with images</h2>
-    <input type="file" id="fileInput" webkitdirectory directory multiple />
+    <input type="file" accept="image" id="fileInput" webkitdirectory directory multiple />
     <button id="uploadBtn">Upload and Process</button>
 
     <h3>Image Metadata</h3>
     <table id="imageTable">
         <thead>
             <tr>
+                <th>№</th>
                 <th>File Name</th>
                 <th>Size (px)</th>
                 <th>Resolution (DPI)</th>

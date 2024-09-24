@@ -29,14 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear the table before appending new data
             imageTable.innerHTML = '';
 
+            let i = 1;
+
             // Populate the table with image metadata
             data.forEach(image => {
                 const row = imageTable.insertRow();
-                row.insertCell(0).textContent = image.filename;
-                row.insertCell(1).textContent = `${image.width} x ${image.height}`;
-                row.insertCell(2).textContent = image.dpi || 'N/A';
-                row.insertCell(3).textContent = image.colorDepth || 'N/A';
-                row.insertCell(4).textContent = image.compression || 'N/A';
+                row.insertCell(0).textContent = i;
+                row.insertCell(1).textContent = image.filename;
+                row.insertCell(2).textContent = `${image.width} x ${image.height}`;
+                row.insertCell(3).textContent = image.dpi || 'N/A';
+                row.insertCell(4).textContent = image.colorDepth || 'N/A';
+                row.insertCell(5).textContent = image.compression || 'N/A';
+
+                i++;
             });
         })
         .catch(err => {

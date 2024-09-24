@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Metadata Extractor</title>
+</head>
+<body>
+
+<header>
+    <h1>Image Metadata Extractor</h1>
+</header>
+
+<main>
+    <h2>Select a folder with images</h2>
+    <input type="file" id="fileInput" webkitdirectory directory multiple />
+    <button id="uploadBtn">Upload and Process</button>
+
+    <h3>Image Metadata</h3>
+    <table id="imageTable">
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Size (px)</th>
+                <th>Resolution (DPI)</th>
+                <th>Color Depth</th>
+                <th>Compression</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

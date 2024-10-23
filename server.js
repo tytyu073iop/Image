@@ -31,11 +31,11 @@ app.post('/process-images', upload.array('images'), async (req, res) => {
                 });
             });
 
-            const { width, height } = identify.Geometry;
-            const dpi = identify.density ? identify.density : 'N/A';
+            const { width, height } = identify.size;
+            const dpi = identify.Resolution;
 
             // Assuming 8-bit depth per channel for now
-            const colorDepth = (identify.bits ? identify.bits : 8) + '-bit';
+            const colorDepth = identify.Depth;
 
             // Format is available directly from identify output
             const compression = identify.format;

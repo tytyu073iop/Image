@@ -1,21 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const uploadBtn = document.getElementById('uploadBtn');
-    const fileInput = document.getElementById('fileInput');
+    const folderInput = document.getElementById('folderInput');
     const imageTable = document.getElementById('imageTable').getElementsByTagName('tbody')[0];
 
     uploadBtn.addEventListener('click', () => {
         const files = fileInput.files;
+        const folder = folderInput.files;
 
-        if (!files.length) {
+        if (!(files.length || folder.length)) {
             alert('Please select a folder with images.');
             return;
         }
+
+        console.log(files);
 
         const formData = new FormData();
         
         // Append files to the form data
         for (let i = 0; i < files.length; i++) {
             formData.append('images', files[i]);
+        }
+        for (let i = 0; i < folder.length; i++) {
+            formData.append('images', folder[i]);
         }
 
         // Send files to server for processing (Assuming a Python/Node.js backend)

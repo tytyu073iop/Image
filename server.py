@@ -1,8 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 from PIL import Image
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -27,7 +29,7 @@ def get_bit_depth(mode):
 
 @app.route('/process-images', methods=['POST'])
 def process_images():
-    print(1)
+    # print(1)
     if 'images' not in request.files:
         return jsonify({'error': 'No images part in the request'}), 400
 
@@ -45,6 +47,8 @@ def process_images():
             dpi = img.info.get('dpi')
             color_depth = img.mode
             compression = img.info.get('compression', 'N/A')
+
+            print(img.info)
 
             response.append({
                 'filename': filename,
